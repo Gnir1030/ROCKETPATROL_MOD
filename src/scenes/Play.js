@@ -18,7 +18,9 @@ class Play extends Phaser.Scene{
     }
 
     create(){
-        this.music = this.sound.play('peco');
+        this.music = this.sound.add('peco');
+        this.music.play();
+
         this.backgroundSpeed = 4;
         // display score
         let scoreConfig = {
