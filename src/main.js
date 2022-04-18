@@ -15,6 +15,12 @@ let borderUISize = game.config.height / 15;
 let borderPadding = borderUISize / 3; 
 
 // reserve keyboard vars
+<<<<<<< HEAD
 let keyA, keyD, keyW, keyR, keyLEFT, keyRIGHT, keyUP, keyDOWN; //key variable
 localStorage.setItem("highStorage", 0);
 localStorage.setItem("highStorage2", 0);
+=======
+let keyA, keyD, keyW, keyR, keyLEFT, keyRIGHT, keyUP, keyDOWN;
+localStorage.setItem("highStorage", 0); //beginnermode_HighScoreStorage
+localStorage.setItem("highStorage2", 0); //expertmode_HighScoreStorage
+>>>>>>> 94e8f7b80f48bdff7be78a95adbfc05925da71e2
