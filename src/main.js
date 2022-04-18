@@ -14,5 +14,5 @@ let borderPadding = borderUISize / 3;
 
 // reserve keyboard vars
 let keyA, keyD, keyW, keyR, keyLEFT, keyRIGHT, keyUP, keyDOWN;
-localStorage.setItem("highStorage", 0);
-localStorage.setItem("highStorage2", 0);
+localStorage.setItem("highStorage", 0); //beginnermode_HighScoreStorage
+localStorage.setItem("highStorage2", 0); //expertmode_HighScoreStorage
