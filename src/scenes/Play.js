@@ -1,3 +1,6 @@
+//Louis Lim
+//Rocket-Patrol-modification
+//04182022
 class Play extends Phaser.Scene{
     constructor(){
         super("playScene");
@@ -15,6 +18,7 @@ class Play extends Phaser.Scene{
     }
 
     create(){
+        this.music = this.sound.play('peco');
         this.backgroundSpeed = 4;
         // display score
         let scoreConfig = {
@@ -114,7 +118,7 @@ class Play extends Phaser.Scene{
             this.ship04.speedUp();
             this.backgroundSpeed *= 1.5;
             this.add.text(game.config.width/2, borderUISize*3 + borderPadding, 'SPEED UP');
-        }, null, this);
+        }, null, this); //speed up spaceships after 30 seconds 
 
         // GAME OVER flag
         this.gameOver = false;
@@ -127,7 +131,8 @@ class Play extends Phaser.Scene{
             this.add.text(game.config.width/2, game.config.height/2 + 72, 'Press L/R arrows to return Menu', scoreConfig).setOrigin(0.5);
             this.gameOver = true;
             this.backgroundSpeed = 0;
-            this.timer.setVisible(false);
+            this.timer.setVisible(false); //erase timer
+            this.music.stop();
         }, null, this);
     }
 
@@ -169,6 +174,12 @@ class Play extends Phaser.Scene{
         if (this.checkCollision(this.p1Rocket, this.ship04)) {
             this.shipExplode(this.ship04, this.p1Rocket);
             this.p1Rocket.reset();
+        }
+        if(this.p1Rocket.isFiring){
+            this.FireUI1.setVisible(true);
+        }
+        else{
+            this.FireUI1.setVisible(false);
         }
 
         if(game.settings.players){
@@ -213,14 +224,7 @@ class Play extends Phaser.Scene{
             }
         }
 
-        if(this.p1Rocket.isFiring){
-            this.FireUI1.setVisible(true);
-        }
-        else{
-            this.FireUI1.setVisible(false);
-        }
-
-        this.timer.setText('Timer: '+ (game.settings.gameTimer/1000 - game.settings.gameTimer/1000*this.clock.getProgress()).toString().substr(0, 5));
+        this.timer.setText('Timer: '+ (game.settings.gameTimer/1000 - game.settings.gameTimer/1000*this.clock.getProgress()).toString().substr(0, 5)); //update timer
         
     }
 
@@ -237,7 +241,7 @@ class Play extends Phaser.Scene{
     }
 
     shipExplode(ship, rocket) {
-        let randomizer = Phaser.Math.Between(0, 3);
+        let randomizer = Phaser.Math.Between(0, 3); //randomize 4 sfx
         // temporarily hide ship
         ship.alpha = 0;
         // create explosion sprite at ship's position

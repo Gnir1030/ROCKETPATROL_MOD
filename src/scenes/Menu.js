@@ -1,3 +1,6 @@
+//Louis Lim
+//Rocket-Patrol-modification
+//04182022
 class Menu extends Phaser.Scene{
     constructor(){
         super("menuScene");
@@ -16,7 +19,6 @@ class Menu extends Phaser.Scene{
 
     create(){
       this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0);
-        this.sound.play('peco');
         let titleConfig = {
           fontFamily: 'Copperplate',
           fontSize: '56px',
@@ -58,7 +60,7 @@ class Menu extends Phaser.Scene{
 
     update() {
         if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
-          // easy mode
+          // beginner mode
           game.settings = {
             spaceshipSpeed: 6,
             gameTimer: 60000,
@@ -69,7 +71,7 @@ class Menu extends Phaser.Scene{
           this.scene.start('playScene');    
         }
         if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
-          // hard mode
+          // expert mode
           game.settings = {
             spaceshipSpeed: 8,
             gameTimer: 45000,
@@ -80,7 +82,7 @@ class Menu extends Phaser.Scene{
           this.scene.start('playScene');    
         }
         if (Phaser.Input.Keyboard.JustDown(keyUP)) {
-          // hard mode
+          // 2player mode
           game.settings = {
             spaceshipSpeed: 6,
             gameTimer: 60000,

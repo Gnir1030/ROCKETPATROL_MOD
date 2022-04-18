@@ -1,4 +1,7 @@
 // Rocket prefab
+//Louis Lim
+//Rocket-Patrol-modification
+//04182022
 class Rocket extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture, frame, keyL, keyR, keyUp) {
       super(scene, x, y, texture, frame);
@@ -49,9 +52,5 @@ class Rocket extends Phaser.GameObjects.Sprite {
     reset(){
         this.isFiring = false;
         this.y = game.config.height - borderUISize - borderPadding;
-    }
-
-    firing(){
-        return this.isFiring;
     }
   }
